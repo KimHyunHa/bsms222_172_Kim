@@ -2160,6 +2160,17 @@ d. sum always returns the same number.<br />
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIG11cmRlcnMkcG9wdWxhdGlvbiBcbmBgYCJ9 -->
 <pre class="r"><code> murders$population </code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSAgNDc3OTczNiAgIDcxMDIzMSAgNjM5MjAxNyAgMjkxNTkxOCAzNzI1Mzk1NiAgNTAyOTE5NlxuIFs3XSAgMzU3NDA5NyAgIDg5NzkzNCAgIDYwMTcyMyAxOTY4NzY1MyAgOTkyMDAwMCAgMTM2MDMwMVxuWzEzXSAgMTU2NzU4MiAxMjgzMDYzMiAgNjQ4MzgwMiAgMzA0NjM1NSAgMjg1MzExOCAgNDMzOTM2N1xuWzE5XSAgNDUzMzM3MiAgMTMyODM2MSAgNTc3MzU1MiAgNjU0NzYyOSAgOTg4MzY0MCAgNTMwMzkyNVxuWzI1XSAgMjk2NzI5NyAgNTk4ODkyNyAgIDk4OTQxNSAgMTgyNjM0MSAgMjcwMDU1MSAgMTMxNjQ3MFxuWzMxXSAgODc5MTg5NCAgMjA1OTE3OSAxOTM3ODEwMiAgOTUzNTQ4MyAgIDY3MjU5MSAxMTUzNjUwNFxuWzM3XSAgMzc1MTM1MSAgMzgzMTA3NCAxMjcwMjM3OSAgMTA1MjU2NyAgNDYyNTM2NCAgIDgxNDE4MFxuWzQzXSAgNjM0NjEwNSAyNTE0NTU2MSAgMjc2Mzg4NSAgIDYyNTc0MSAgODAwMTAyNCAgNjcyNDU0MFxuWzQ5XSAgMTg1Mjk5NCAgNTY4Njk4NiAgIDU2MzYyNlxuIn0= -->
+<pre><code> [1]  4779736   710231  6392017  2915918 37253956  5029196
+ [7]  3574097   897934   601723 19687653  9920000  1360301
+[13]  1567582 12830632  6483802  3046355  2853118  4339367
+[19]  4533372  1328361  5773552  6547629  9883640  5303925
+[25]  2967297  5988927   989415  1826341  2700551  1316470
+[31]  8791894  2059179 19378102  9535483   672591 11536504
+[37]  3751351  3831074 12702379  1052567  4625364   814180
+[43]  6346105 25145561  2763885   625741  8001024  6724540
+[49]  1852994  5686986   563626</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>But how did we know to use population? Previously, by applying the function str to the object murders, we revealed the names for each of the five variables stored in this table. We can quickly access the variable names using:</p>
@@ -2168,6 +2179,10 @@ d. sum always returns the same number.<br />
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICBuYW1lcyhtdXJkZXJzKSBcbmBgYCJ9 -->
 <pre class="r"><code>  names(murders) </code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwic3RhdGVcIiAgICAgIFwiYWJiXCIgICAgICAgIFwicmVnaW9uXCIgICAgIFwicG9wdWxhdGlvblwiXG5bNV0gXCJ0b3RhbFwiICAgICBcbiJ9 -->
+<pre><code>[1] &quot;state&quot;      &quot;abb&quot;        &quot;region&quot;     &quot;population&quot;
+[5] &quot;total&quot;     </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>It is important to know that the order of the entries in murders<span class="math inline">\(population preserves the order of the rows in our data table. This will later permit us to manipulate one variable based on the results of another. For example, we will be able to order the state names by the number of murders. Tip: R comes with a very nice auto-complete functionality that saves us the trouble of typing out all the names. Try typing murders\)</span>p then hitting the tab key on your keyboard. This functionality and many other useful auto-complete features are available when working in RStudio.</p>
