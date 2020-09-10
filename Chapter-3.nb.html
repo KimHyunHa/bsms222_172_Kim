@@ -1960,6 +1960,15 @@ avg(1:10)</code></pre>
 <p>Once you start becoming more of an R expert user, you will likely need to load several add-on packages for some of your analysis. Once you start doing this, it is likely that two packages use the same name for two different functions. And often these functions do completely different things. In fact, you have already encountered this because both dplyr and the R-base stats package define a filter function. There are five other examples in dplyr. We know this because when we first load dplyr we see the following message:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVGhlIGZvbGxvd2luZyBvYmplY3RzIGFyZSBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOnN0YXRz4oCZOlxuXG4gICAgZmlsdGVyLCBsYWdcblxuVGhlIGZvbGxvd2luZyBvYmplY3RzIGFyZSBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOmJhc2XigJk6XG5cbiAgICBpbnRlcnNlY3QsIHNldGRpZmYsIHNldGVxdWFsLCB1bmlvblxuYGBgIn0= -->
+<pre class="r"><code>The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>So what does R do when we type filter? Does it use the dplyr function or the stats function? From our previous work we know it uses the dplyr one. But what if we want to use the stats version? These functions live in different namespaces. R will follow a certain order when searching for a function in these namespaces. You can see the order by typing:</p>
@@ -1979,11 +1988,17 @@ avg(1:10)</code></pre>
 <p>The first entry in this list is the global environment which includes all the objects you define. So what if we want to use the stats filter instead of the dplyr filter but dplyr appears first in the search list? You can force the use of a specific namespace by using double colons (::) like this:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RhdHM6OmZpbHRlclxuYGBgIn0= -->
+<pre class="r"><code>stats::filter</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>If we want to be absolutely sure that we use the dplyr filter, we can use</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZHBseXI6OmZpbHRlclxuYGBgIn0= -->
+<pre class="r"><code>dplyr::filter</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Also note that if we want to use a function in a package without loading the entire package, we can use the double colon as well. For more on this more advanced topic we recommend the R packages book16.</p>
@@ -2049,11 +2064,21 @@ plot(n, s_n)</code></pre>
 <p>Although for-loops are an important concept to understand, in R we rarely use them. As you learn more R, you will realize that vectorization is preferred over for-loops since it results in shorter and clearer code. We already saw examples in the Vector Arithmetic section. A vectorized function is a function that will apply the same operation on each of the vectors.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSAxOjEwXG5zcXJ0KHgpXG55IDwtIDE6MTBcbngqeVxuYGBgIn0= -->
+<pre class="r"><code>x &lt;- 1:10
+sqrt(x)
+y &lt;- 1:10
+x*y</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>To make this calculation, there is no need for for-loops. However, not all functions work this way. For instance, the function we just wrote, compute_s_n, does not work element-wise since it is expecting a scalar. This piece of code does not run the function on each entry of n:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubiA8LSAxOjI1XG5jb21wdXRlX3NfbihuKVxuYGBgIn0= -->
+<pre class="r"><code>n &lt;- 1:25
+compute_s_n(n)</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Functionals are functions that help us apply the same function to each entry in a vector, matrix, data frame, or list. Here we cover the functional that operates on numeric, logical, and character vectors: sapply. The function sapply permits us to perform element-wise operations on any function. Here is how it works:</p>
@@ -2115,6 +2140,12 @@ if(all(x&gt;0)){
 </ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmV3X25hbWVzIDwtIG5jaGFyKGNoYXJhY3RlcnMpPj04e1xuYGBgIn0= -->
+<pre class="r"><code>new_names &lt;- nchar(characters)&gt;=8{</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IHVuZXhwZWN0ZWQgJ3snIGluIFwibmV3X25hbWVzIDwtIG5jaGFyKGNoYXJhY3RlcnMpPj04e1wiXG4ifQ== -->
+<pre><code>Error: unexpected &#39;{&#39; in &quot;new_names &lt;- nchar(characters)&gt;=8{&quot;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <ol start="4" style="list-style-type: decimal">
@@ -2231,6 +2262,11 @@ s_n</code></pre>
 </ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubiA8LSAxOjI1XG5zX24gPC0gbWFwX2RibChuLCBjb21wdXRlX3NfbilcbnNfblxuYGBgIn0= -->
+<pre class="r"><code>n &lt;- 1:25
+s_n &lt;- map_dbl(n, compute_s_n)
+s_n</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <ol start="11" style="list-style-type: decimal">
