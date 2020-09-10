@@ -2140,12 +2140,13 @@ if(all(x&gt;0)){
 </ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmV3X25hbWVzIDwtIG5jaGFyKGNoYXJhY3RlcnMpPj04e1xuYGBgIn0= -->
-<pre class="r"><code>new_names &lt;- nchar(characters)&gt;=8{</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmV3X25hbWVzIDwtIG5jaGFyKGNoYXJhY3RlcnMpPj04e1xuICBhYmJyZXZpYXRlKGNoYXJhY3RlcnMpXG59IGVsc2V7XG4gIHByaW50KGNoYXJhY3RlcnMpXG59XG5gYGAifQ== -->
+<pre class="r"><code>new_names &lt;- nchar(characters)&gt;=8{
+  abbreviate(characters)
+} else{
+  print(characters)
+}</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IHVuZXhwZWN0ZWQgJ3snIGluIFwibmV3X25hbWVzIDwtIG5jaGFyKGNoYXJhY3RlcnMpPj04e1wiXG4ifQ== -->
-<pre><code>Error: unexpected &#39;{&#39; in &quot;new_names &lt;- nchar(characters)&gt;=8{&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <ol start="4" style="list-style-type: decimal">
