@@ -216,7 +216,7 @@ c. any(!x)
 d. all(!x)
  => b. any(x)
   
-3. The function nchar tells you how many characters long a character vector is. Write a line of code that assigns to the object new_names the state abbreviation when the state name is longer than 8 characters.  
+3. The function nchar tells you how many characters long a character vector is. Write a line of code that assigns to the object new_names the state abbreviation when the state name is longer than 8 characters.
   
 z = characters
 ```{r} 
