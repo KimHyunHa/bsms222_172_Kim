@@ -216,12 +216,12 @@ c. any(!x)
 d. all(!x)
  => b. any(x)
   
-3. The function nchar tells you how many characters long a character vector is. Write a line of code that assigns to the object new_names the state abbreviation when the state name is longer than 8 characters.   
-new_names <- nchar(characters)>=8{
-  abbreviate(characters)
-} else{
-  print(characters)
-}  
+3. The function nchar tells you how many characters long a character vector is. Write a line of code that assigns to the object new_names the state abbreviation when the state name is longer than 8 characters.  
+  
+z = characters
+```{r} 
+new_names <- ifelse(nchar(z) >= 8, abbreviate(z), print(z))
+```
   
 4. Create a function sum_n that for any given value, say n, computes the sum of the integers from 1 to n (inclusive). Use the function to determine the sum of integers from 1 to 5,000.  
 ```{r}
