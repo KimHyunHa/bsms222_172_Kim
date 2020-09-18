@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Chapter4.1_4.6"
 output: html_document
 ---
 
@@ -254,18 +254,15 @@ This line of code is equivalent to the two lines of code above. What is going on
 In general, the pipe sends the result of the left side of the pipe to be the first argument of the function on the right side of the pipe. Here is a very simple example:
 ```{r}
 16 %>% sqrt()
-#> [1] 4
 ```
 We can continue to pipe values along:
 ```{r}
 16 %>% sqrt() %>% log2()
-#> [1] 2
 ```
 The above statement is equivalent to log2(sqrt(16)).  
 Remember that the pipe sends values to the first argument, so we can define other arguments as if the first argument is already defined:  
 ```{r}
 16 %>% sqrt() %>% log(base = 2)
-#> [1] 2
 ```
 Therefore, when using the pipe with data frames and **dplyr**, we no longer need to specify the required first argument since the **dplyr** functions we have described all take the data as the first argument. In the code we wrote:
 ```{r}
@@ -332,4 +329,3 @@ my_states
 #> 6          Utah 0.7959810   45
 #> 7       Vermont 0.3196211   51
 #> 8       Wyoming 0.8871131   43
-```
